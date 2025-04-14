@@ -1,47 +1,42 @@
-import { useState, useEffect } from "react"
+import React from "react"
 
 interface AssetSelectorProps {
   label: string
   folder: string
-  onSelect: (path: string) => void
-  selected?: string
+  selected: string
+  onSelect: (value: string) => void
 }
 
-export default function AssetSelector({ label, folder, onSelect, selected }: AssetSelectorProps) {
-  const [assets, setAssets] = useState<string[]>([])
+export default function AssetSelector({ label, folder, selected, onSelect }: AssetSelectorProps) {
+  const index = `/assets/${folder}/index.json`
+  const [images, setImages] = React.useState<string[]>([])
 
-  useEffect(() => {
-    const fetchAssets = async () => {
-      try {
-        const res = await fetch(`/assets/${folder}/index.json`)
-        const files: string[] = await res.json()
-        const fullPaths = files.map(file => `/assets/${folder}/${file}`)
-        setAssets(fullPaths)
-      } catch (err) {
-        console.error("Erreur chargement assets:", err)
-      }
-    }
-  
-    fetchAssets()
-  }, [folder])  
+  React.useEffect(() => {
+    fetch(index)
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data)
+      })
+  }, [folder])
 
   return (
-    <div>
-      <h4>{label}</h4>
-      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-        {assets.map((src) => (
+    <div style={{ marginBottom: 24 }}>
+      <h4 style={{ fontSize: 16, marginBottom: 8 }}>{label}</h4>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        {images.map((img) => (
           <img
-            key={src}
-            src={src}
-            alt={src}
-            width={60}
-            height={60}
+            key={img}
+            src={`/assets/${folder}/${img}`}
+            onClick={() => onSelect(`/assets/${folder}/${img}`)}
+            draggable={false}
             style={{
-              border: selected === src ? "2px solid red" : "1px solid #ccc",
+              width: 48,
+              height: "auto",
+              border: selected.endsWith(img) ? "2px solid red" : "1px solid lightgray",
+              borderRadius: 4,
               cursor: "pointer",
-              borderRadius: 4
+              imageRendering: "pixelated"
             }}
-            onClick={() => onSelect(src)}
           />
         ))}
       </div>

@@ -1,0 +1,11 @@
+{
+  "background": { "x": 0, "y": 0 },
+  "face": { "x": 22, "y": 27 },
+  "collar": { "x": 13, "y": 52 },
+  "eyes": { "x": 26, "y": 37 },
+  "nose": { "x": 32, "y": 45 },
+  "mouth": { "x": 26, "y": 44 },
+  "hat": { "x": 14, "y": 14 },
+  "textDecoration": { "x": 0, "y": 0 },
+  "overlay": { "x": 0, "y": 0 }
+}

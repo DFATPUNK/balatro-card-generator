@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import { JokerFaceConfig } from "../types/JokerFaceConfig"
-import layerPositions from "../../public/config/layerPositions.json"
+import layerPositions from "../config/layerPositions.json"
 
 interface CardBuilderProps {
   config: JokerFaceConfig
@@ -28,32 +28,72 @@ export default function CardBuilder({ config, width = 69, height = 95 }: CardBui
 
       ctx.clearRect(0, 0, width, height)
 
-      const orderedLayers: (keyof JokerFaceConfig | "textDecoration" | "overlay")[] = [
-        "background",
-        "collar",
-        "face",
-        "eyes",
-        "nose",
-        "mouth",
-        "hat",
-        "textDecoration",
-        "overlay"
-      ]
+      const overlayPath = config.overlay || ""
+      const isRainbow = overlayPath.toLowerCase().includes("rainbow")
+      const isHolographic = overlayPath.toLowerCase().includes("holographic")
+
+      let orderedLayers: (keyof JokerFaceConfig | "overlay")[] = []
+
+      if (isRainbow) {
+        orderedLayers = [
+          "background",
+          "collar",
+          "face",
+          "eyes",
+          "nose",
+          "mouth",
+          "hat"
+        ]
+      } else if (isHolographic) {
+        orderedLayers = [
+          "background",
+          "collar",
+          "face",
+          "eyes",
+          "nose",
+          "mouth",
+          "hat"
+        ]
+      } else {
+        orderedLayers = [
+          "background",
+          "collar",
+          "face",
+          "eyes",
+          "nose",
+          "mouth",
+          "hat"
+        ]
+      }
 
       for (const key of orderedLayers) {
         const path = config[key as keyof JokerFaceConfig]
         if (!path) continue
         const img = await loadImage(path)
-
         const position = layerPositions[key as keyof typeof layerPositions]
         if (!position) continue
 
-        // 🎯 Correction spécifique pour le nez : ancrage par le bas
         if (key === "nose") {
           ctx.drawImage(img, position.x, position.y - img.height)
         } else {
           ctx.drawImage(img, position.x, position.y)
         }
+      }
+
+      // 🎯 Ajouter overlay rainbow en mode hue tout à la fin
+      if (isRainbow && config.overlay) {
+        const overlayImg = await loadImage(config.overlay)
+        ctx.globalCompositeOperation = "hue"
+        ctx.drawImage(overlayImg, 0, 0)
+        ctx.globalCompositeOperation = "source-over"
+      }
+
+      // 🎯 Ajouter overlay holographic en mode darken tout à la fin
+      if (isHolographic && config.overlay) {
+        const overlayImg = await loadImage(config.overlay)
+        ctx.globalCompositeOperation = "darken"
+        ctx.drawImage(overlayImg, 0, 0)
+        ctx.globalCompositeOperation = "source-over"
       }
     }
 

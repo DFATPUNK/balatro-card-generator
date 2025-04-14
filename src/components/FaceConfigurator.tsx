@@ -21,18 +21,32 @@ export default function FaceConfigurator() {
   }
 
   return (
-    <div>
-      <h2>Construis ton Joker</h2>
-      <div style={{ display: "flex", gap: "20px" }}>
+    <div
+    style={{
+        padding: "2rem",
+        minHeight: "1440px",
+        backgroundImage: "url('/balatro_theme.crt.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "auto",
+        overflow: "auto"
+    }}
+    >
+      <h2 style={{ textAlign: "center", fontSize: "1.8rem", marginBottom: "2rem" }}>🎨 Construis ton Joker</h2>
+      <div style={{ display: "flex", gap: "40px", paddingRight: "80px" }}>
         <div style={{ flex: 1 }}>
           <AssetSelector label="Collet" folder="collars" selected={config.collar} onSelect={handleSelect("collar")} />
           <AssetSelector label="Yeux" folder="eyes" selected={config.eyes} onSelect={handleSelect("eyes")} />
           <AssetSelector label="Nez" folder="noses" selected={config.nose} onSelect={handleSelect("nose")} />
           <AssetSelector label="Sourire" folder="smiles" selected={config.mouth} onSelect={handleSelect("mouth")} />
           <AssetSelector label="Chapeau" folder="hats" selected={config.hat} onSelect={handleSelect("hat")} />
+          <AssetSelector label="Effet spécial" folder="layers" selected={config.overlay ?? ""} onSelect={handleSelect("overlay")} />
+          <AssetSelector label="Background" folder="rectos" selected={config.background} onSelect={handleSelect("background")} />
         </div>
-        <div style={{ flex: 1 }}>
-          <CardBuilder config={config} width={69} height={95} />
+        <div style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ transform: "scale(4)", transformOrigin: "top left" }}>
+            <CardBuilder config={config} width={69} height={95} />
+          </div>
         </div>
       </div>
     </div>
