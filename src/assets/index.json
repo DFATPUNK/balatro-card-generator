@@ -1,0 +1,131 @@
+{
+  "collars": [
+    "Style=Default, Color=Default.png",
+    "Style=Default, Color=Gray Blue.png",
+    "Style=Default, Color=Gray Yellow.png",
+    "Style=Default, Color=Odd Todd Blue.png",
+    "Style=Default, Color=Red Brown.png",
+    "Style=Default, Color=White Red.png",
+    "Style=Petals, Color=Default.png",
+    "Style=Petals, Color=Gray Blue.png",
+    "Style=Petals, Color=Gray Yellow.png",
+    "Style=Petals, Color=Odd Todd Blue.png",
+    "Style=Petals, Color=Red Brown.png",
+    "Style=Petals, Color=White Red.png"
+  ],
+  "decorations": [
+    "Type=Double.png",
+    "Type=Inline.png"
+  ],
+  "eyes": [
+    "Color=Blue, Style=Closed.png",
+    "Color=Blue, Style=Half Closed.png",
+    "Color=Blue, Style=Open.png",
+    "Color=Dark blue, Style=Closed.png",
+    "Color=Dark blue, Style=Half Closed.png",
+    "Color=Dark blue, Style=Open.png",
+    "Color=Dark, Style=Closed.png",
+    "Color=Dark, Style=Half Closed.png",
+    "Color=Dark, Style=Open.png",
+    "Color=Green, Style=Closed.png",
+    "Color=Green, Style=Half Closed.png",
+    "Color=Green, Style=Open.png",
+    "Color=Pink, Style=Closed.png",
+    "Color=Pink, Style=Half Closed.png",
+    "Color=Pink, Style=Open.png",
+    "Color=Red, Style=Closed.png",
+    "Color=Red, Style=Half Closed.png",
+    "Color=Red, Style=Open.png",
+    "Color=Yellow, Style=Closed.png",
+    "Color=Yellow, Style=Half Closed.png",
+    "Color=Yellow, Style=Open.png"
+  ],
+  "faces": [
+    "Jester Face from Balatro.png"
+  ],
+  "hats": [
+    "Color=Brown, Backpiece=False, Type=1 tip.png",
+    "Color=Brown, Backpiece=False, Type=3 tips.png",
+    "Color=Dark blue, Backpiece=False, Type=1 tip.png",
+    "Color=Dark blue, Backpiece=False, Type=3 tips.png",
+    "Color=Default, Backpiece=False, Type=1 tip.png",
+    "Color=Default, Backpiece=False, Type=3 tips.png",
+    "Color=Gray Yellow, Backpiece=False, Type=1 tip.png",
+    "Color=Gray Yellow, Backpiece=False, Type=3 tips.png",
+    "Color=Light blue, Backpiece=False, Type=1 tip.png",
+    "Color=Light blue, Backpiece=False, Type=3 tips.png",
+    "Color=Red White, Backpiece=False, Type=1 tip.png",
+    "Color=Red White, Backpiece=False, Type=3 tips.png"
+  ],
+  "labels": [
+    "Type=Common.png",
+    "Type=Legendary.png",
+    "Type=Rare.png",
+    "Type=Uncommon.png"
+  ],
+  "layers": [
+    "Type=Holographic.png",
+    "Type=Rainbow.png"
+  ],
+  "noses": [
+    "Style=Clown, Color=Blue.png",
+    "Style=Clown, Color=Default.png",
+    "Style=Clown, Color=Gray.png",
+    "Style=Clown, Color=Green.png",
+    "Style=Clown, Color=Pink.png",
+    "Style=Clown, Color=Yellow.png",
+    "Style=Default, Color=Blue.png",
+    "Style=Default, Color=Default.png",
+    "Style=Default, Color=Gray.png",
+    "Style=Default, Color=Green.png",
+    "Style=Default, Color=Pink.png",
+    "Style=Default, Color=Yellow.png"
+  ],
+  "rectos": [
+    "Vector 6.png",
+    "Vector 7.png",
+    "Vector 8.png"
+  ],
+  "smiles": [
+    "Style=Big smile, Color=Blue.png",
+    "Style=Big smile, Color=Dark blue.png",
+    "Style=Big smile, Color=Gray.png",
+    "Style=Big smile, Color=Green.png",
+    "Style=Big smile, Color=Pink.png",
+    "Style=Big smile, Color=Red.png",
+    "Style=Big smile, Color=Yellow.png",
+    "Style=Small smile, Color=Blue.png",
+    "Style=Small smile, Color=Dark blue.png",
+    "Style=Small smile, Color=Gray.png",
+    "Style=Small smile, Color=Green.png",
+    "Style=Small smile, Color=Pink.png",
+    "Style=Small smile, Color=Red.png",
+    "Style=Small smile, Color=Yellow.png"
+  ],
+  "texts": [
+    "Direction=Default, Color=Dark, Outline=False.png",
+    "Direction=Default, Color=Dark, Outline=True.png",
+    "Direction=Default, Color=Gray, Outline=False.png",
+    "Direction=Default, Color=White, Outline=False.png",
+    "Direction=Default, Color=White, Outline=True.png",
+    "Direction=Inline, Color=Dark, Outline=False.png",
+    "Direction=Inline, Color=Dark, Outline=True.png",
+    "Direction=Inline, Color=Gray, Outline=True.png",
+    "Direction=Inline, Color=White, Outline=False.png",
+    "Direction=Inline, Color=White, Outline=True.png",
+    "Direction=Mirrored, Color=Dark, Outline=False.png",
+    "Direction=Mirrored, Color=Dark, Outline=True.png",
+    "Direction=Mirrored, Color=Gray, Outline=False.png",
+    "Direction=Mirrored, Color=White, Outline=False.png",
+    "Direction=Mirrored, Color=White, Outline=True.png"
+  ],
+  "versos": [
+    "Type=Anaglyph Deck.png",
+    "Type=Black.png",
+    "Type=Blue.png",
+    "Type=Erratic.png",
+    "Type=Green.png",
+    "Type=Red.png",
+    "Type=Yellow.png"
+  ]
+}

@@ -1,43 +1,59 @@
-import React from "react"
+import { useEffect, useState } from "react"
+import index from "../assets/index.json"
 
 interface AssetSelectorProps {
   label: string
   folder: string
   selected: string
-  onSelect: (value: string) => void
+  onSelect: (path: string) => void
+  columns?: number
+  rows?: number
 }
 
-export default function AssetSelector({ label, folder, selected, onSelect }: AssetSelectorProps) {
-  const index = `/assets/${folder}/index.json`
-  const [images, setImages] = React.useState<string[]>([])
+export default function AssetSelector({ label, folder, selected, onSelect, columns, rows }: AssetSelectorProps) {
+  const [paths, setPaths] = useState<string[]>([])
 
-  React.useEffect(() => {
-    fetch(index)
-      .then((res) => res.json())
-      .then((data) => {
-        setImages(data)
-      })
+  useEffect(() => {
+    const folderIndex = index[folder as keyof typeof index] || []
+    setPaths(folderIndex.map((filename: string) => `/assets/${folder}/${filename}`))
   }, [folder])
 
   return (
-    <div style={{ marginBottom: 24 }}>
-      <h4 style={{ fontSize: 16, marginBottom: 8 }}>{label}</h4>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-        {images.map((img) => (
-          <img
-            key={img}
-            src={`/assets/${folder}/${img}`}
-            onClick={() => onSelect(`/assets/${folder}/${img}`)}
-            draggable={false}
-            style={{
-              width: 48,
-              height: "auto",
-              border: selected.endsWith(img) ? "2px solid red" : "1px solid lightgray",
-              borderRadius: 4,
-              cursor: "pointer",
-              imageRendering: "pixelated"
-            }}
-          />
+    <div>
+      <h3 style={{ marginBottom: 12 }}>{label}</h3>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${columns ?? 4}, 1fr)`,
+          gap: 12,
+          maxHeight: "calc(100vh - 240px)",
+          overflowY: "auto"
+        }}
+      >
+        {paths.map((path) => (
+            <div
+                key={path}
+                onClick={() => onSelect(path)}
+                style={{
+                width: 64,
+                height: 64,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "white",
+                border: path === selected ? "2px solid #007bff" : "2px solid transparent",
+                borderRadius: 4
+                }}
+            >
+                <img
+                    src={path}
+                    style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        imageRendering: "pixelated"
+                    }}
+                />
+            </div>       
         ))}
       </div>
     </div>

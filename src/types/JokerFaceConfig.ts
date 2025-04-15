@@ -10,4 +10,5 @@ export interface JokerFaceConfig {
     textLabel?: string
     overlay?: string
     verso?: string
+    recto?: string
   }  

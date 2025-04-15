@@ -1,24 +1,15 @@
+// scripts/generateAssetIndexes.js
 const fs = require("fs")
 const path = require("path")
 
-const baseDir = path.join(__dirname, "../public/assets")
+const basePath = path.join(__dirname, "../public/assets")
+const output = {}
 
-function generateIndexes() {
-  const categories = fs.readdirSync(baseDir).filter((name) => {
-    const fullPath = path.join(baseDir, name)
-    return fs.statSync(fullPath).isDirectory()
-  })
+fs.readdirSync(basePath).forEach((folder) => {
+  const fullPath = path.join(basePath, folder)
+  if (fs.lstatSync(fullPath).isDirectory()) {
+    output[folder] = fs.readdirSync(fullPath).filter((f) => f.endsWith(".png"))
+  }
+})
 
-  categories.forEach((category) => {
-    const folderPath = path.join(baseDir, category)
-    const files = fs
-      .readdirSync(folderPath)
-      .filter((file) => file.endsWith(".png"))
-
-    const indexPath = path.join(folderPath, "index.json")
-    fs.writeFileSync(indexPath, JSON.stringify(files, null, 2))
-    console.log(`✔️  index.json généré pour ${category}`)
-  })
-}
-
-generateIndexes()
+fs.writeFileSync(path.join(basePath, "index.json"), JSON.stringify(output, null, 2))
