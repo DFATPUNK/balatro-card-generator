@@ -14,6 +14,7 @@
     "Style=Petals, Color=White Red.png"
   ],
   "decorations": [
+    "None.png",
     "Type=Double.png",
     "Type=Double, Color=White.png",
     "Type=Inline.png",

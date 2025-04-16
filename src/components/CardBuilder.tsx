@@ -59,7 +59,7 @@ export default function CardBuilder({ config, width = 69, height = 95 }: CardBui
         }
       }
 
-      // 🎯 Ajouter overlay rainbow en mode hue tout à la fin
+      // Add rainbow edition with hue effect
       if (isRainbow && config.overlay) {
         const overlayImg = await loadImage(config.overlay)
         ctx.globalCompositeOperation = "hue"
@@ -67,7 +67,7 @@ export default function CardBuilder({ config, width = 69, height = 95 }: CardBui
         ctx.globalCompositeOperation = "source-over"
       }
 
-      // 🎯 Ajouter overlay holographic en mode darken tout à la fin
+      // Add holographic edition with darken effect
       if (isHolographic && config.overlay) {
         const overlayImg = await loadImage(config.overlay)
         ctx.globalCompositeOperation = "darken"

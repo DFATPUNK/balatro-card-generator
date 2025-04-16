@@ -8,6 +8,4 @@ export interface JokerFaceConfig {
     hat: string
     textDecoration?: string
     overlay?: string
-    verso?: string
-    recto?: string
   }  

@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# Balatro Card Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🎴 A desktop-only demo app to create your own Balatro Joker cards.
 
-Currently, two official plugins are available:
+🃏 All UI components used in this app are based on assets created with Figma, courtesy of Orely Duport.  
+👉 Check them out here: [Balatro - Build your own Joker](https://www.figma.com/community/file/1455582433281954119)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 Try the live demo: [balatro.jeremybrunet.com](https://balatro.jeremybrunet.com)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧰 Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Choose from a variety of assets: backgrounds, collars, eyes, noses, mouths, hats, overlays, and text decorations
+- Live card preview as you build your Joker
+- Download your creation as a PNG image
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⏳ Next features
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Mobile version
+- Add custom Joker descriptions
+- Add rarity and price tags
+- Choose a back design for the Joker and flip the card
+- Select text decoration styles
+- Upload custom background assets
+
+---
+
+## 🗂️ Project Structure
+
+balatro-card-generator/ ├── public/ │ ├── assets/ │ │ ├── backgrounds/ │ │ ├── collars/ │ │ ├── eyes/ │ │ ├── noses/ │ │ ├── mouths/ │ │ ├── hats/ │ │ ├── overlays/ │ │ └── text-decorations/ │ └── favicon.ico ├── src/ │ ├── components/ │ │ ├── AssetSelector.tsx │ │ ├── CardBuilder.tsx │ │ └── FaceConfiguratorTabs.tsx │ ├── App.css │ ├── App.tsx │ └── main.tsx ├── index.html ├── package.json └── vite.config.ts
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/DFATPUNK/balatro-card-generator.git
+   cd balatro-card-generator
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+
+3. Run the development server:
+
+    ```bash
+    npm run dev
+
+4. Build for production:
+
+    ```bash
+    npm run build
+
+---
+
+## ✉️ Contact 
+
+Got ideas? Want to collaborate or suggest improvements?
+Feel free to reach out: [jeremy@jeremybrunet.com](mailto:jeremy@jeremybrunet.com)
+
+---
+
+## 🤝 Contributing
+
+Forks and pull requests are welcome!
+
+If you'd like to contribute ideas, features, refactoring, or assets to improve the project:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request — I’ll review it with pleasure!
+
+This project is a playground for creativity, so feel free to remix it in your own way.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.

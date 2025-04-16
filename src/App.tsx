@@ -17,20 +17,19 @@ export default function App() {
 
   return (
     <div
-  style={{
-    minHeight: "100vh",
-    backgroundImage: "url('/balatro_theme.crt.png')",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "2rem"
-  }}
->
-  <FaceConfiguratorTabs config={config} onChange={setConfig} />
-</div>
-
+      style={{
+        minHeight: "100vh",
+        backgroundImage: "url('/balatro_theme.crt.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem"
+      }}
+    >
+      <FaceConfiguratorTabs config={config} onChange={setConfig} />
+    </div>
   )
 }
