@@ -34,37 +34,16 @@ export default function CardBuilder({ config, width = 69, height = 95 }: CardBui
 
       let orderedLayers: (keyof JokerFaceConfig | "overlay")[] = []
 
-      if (isRainbow) {
-        orderedLayers = [
-          "background",
-          "collar",
-          "face",
-          "eyes",
-          "nose",
-          "mouth",
-          "hat"
-        ]
-      } else if (isHolographic) {
-        orderedLayers = [
-          "background",
-          "collar",
-          "face",
-          "eyes",
-          "nose",
-          "mouth",
-          "hat"
-        ]
-      } else {
-        orderedLayers = [
-          "background",
-          "collar",
-          "face",
-          "eyes",
-          "nose",
-          "mouth",
-          "hat"
-        ]
-      }
+      orderedLayers = [
+        "background",
+        "textDecoration",
+        "collar",
+        "face",
+        "eyes",
+        "nose",
+        "mouth",
+        "hat",
+      ]
 
       for (const key of orderedLayers) {
         const path = config[key as keyof JokerFaceConfig]

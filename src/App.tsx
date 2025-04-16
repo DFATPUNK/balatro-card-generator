@@ -9,7 +9,7 @@ const initialConfig: JokerFaceConfig = {
   eyes: "/assets/eyes/Color=Blue, Style=Closed.png",
   nose: "/assets/noses/Style=Clown, Color=Blue.png",
   mouth: "/assets/smiles/Style=Big smile, Color=Blue.png",
-  hat: "/assets/hats/Color=Brown, Backpiece=False, Type=1 tip.png"
+  hat: "/assets/hats/Color=Brown, Backpiece=False, Type=1 tip.png",
 }
 
 export default function App() {

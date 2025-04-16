@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import index from "../assets/index.json"
+import "../App.css"
 
 interface AssetSelectorProps {
   label: string
@@ -10,7 +11,7 @@ interface AssetSelectorProps {
   rows?: number
 }
 
-export default function AssetSelector({ label, folder, selected, onSelect, columns, rows }: AssetSelectorProps) {
+export default function AssetSelector({ label, folder, selected, onSelect, columns }: AssetSelectorProps) {
   const [paths, setPaths] = useState<string[]>([])
 
   useEffect(() => {
@@ -19,42 +20,38 @@ export default function AssetSelector({ label, folder, selected, onSelect, colum
   }, [folder])
 
   return (
-    <div>
-      <h3 style={{ marginBottom: 12 }}>{label}</h3>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${columns ?? 4}, 1fr)`,
-          gap: 12,
-          maxHeight: "calc(100vh - 240px)",
-          overflowY: "auto"
-        }}
-      >
-        {paths.map((path) => (
+    <div className="asset-selector">
+      <h3 className="balatro-section-title">{label}</h3>
+      <div className="scroll-zone">
+        <div
+          className="balatro-asset-grid"
+          style={{
+            gridTemplateColumns: `repeat(${columns ?? 4}, 1fr)`
+          }}
+        >
+          {paths.map((path) => (
             <div
-                key={path}
-                onClick={() => onSelect(path)}
-                style={{
-                width: 64,
-                height: 64,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "white",
+              key={path}
+              onClick={() => onSelect(path)}
+              style={{
                 border: path === selected ? "2px solid #007bff" : "2px solid transparent",
-                borderRadius: 4
-                }}
+                borderRadius: 4,
+                width: 72,
+                height: 72,
+                boxSizing: "border-box"
+              }}
             >
-                <img
+              <div className="balatro-asset-wrapper">
+                <div className="balatro-asset-inner">
+                  <img
                     src={path}
-                    style={{
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                        imageRendering: "pixelated"
-                    }}
-                />
-            </div>       
-        ))}
+                    alt="asset"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

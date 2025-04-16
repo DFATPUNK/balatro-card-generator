@@ -15,7 +15,9 @@
   ],
   "decorations": [
     "Type=Double.png",
-    "Type=Inline.png"
+    "Type=Double, Color=White.png",
+    "Type=Inline.png",
+    "Type=Inline, Color=White.png"
   ],
   "eyes": [
     "Color=Blue, Style=Closed.png",
@@ -64,6 +66,7 @@
     "Type=Uncommon.png"
   ],
   "layers": [
+    "None.png",
     "Type=Holographic.png",
     "Type=Rainbow.png"
   ],

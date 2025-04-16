@@ -1,4 +1,6 @@
 [
   "Type=Double.png",
-  "Type=Inline.png"
+  "Type=Double, Color=White",
+  "Type=Inline.png",
+  "Type=Inline, Color=White"
 ]

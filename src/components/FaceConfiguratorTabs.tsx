@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import AssetSelector from "./AssetSelector"
 import CardBuilder from "./CardBuilder"
 import { JokerFaceConfig } from "../types/JokerFaceConfig"
+import "../App.css"
 
 interface FaceConfiguratorTabsProps {
   config: JokerFaceConfig
@@ -15,13 +16,14 @@ const tabs: {
   columns?: number
   rows?: number
 }[] = [
-  { key: "background", label: "Recto", folder: "rectos" },
-  { key: "collar", label: "Collet", folder: "collars", columns: 2, rows: 6 },
-  { key: "eyes", label: "Yeux", folder: "eyes", columns: 3, rows: 7 },
-  { key: "nose", label: "Nez", folder: "noses", columns: 3, rows: 4 },
-  { key: "mouth", label: "Sourire", folder: "smiles", columns: 2, rows: 7 },
-  { key: "hat", label: "Chapeau", folder: "hats", columns: 2, rows: 6 },
-  { key: "overlay", label: "Overlay", folder: "layers" }
+  { key: "background", label: "Recto", folder: "rectos", columns: 8 },
+  { key: "collar", label: "Collet", folder: "collars", columns: 8 },
+  { key: "eyes", label: "Yeux", folder: "eyes", columns: 8 },
+  { key: "nose", label: "Nez", folder: "noses", columns: 8 },
+  { key: "mouth", label: "Sourire", folder: "smiles", columns: 8 },
+  { key: "hat", label: "Chapeau", folder: "hats", columns: 8 },
+  { key: "textDecoration", label: "Décoration", folder: "decorations", columns: 8 },
+  { key: "overlay", label: "Overlay", folder: "layers", columns: 8 }
 ]
 
 export default function FaceConfiguratorTabs({ config, onChange }: FaceConfiguratorTabsProps) {
@@ -38,31 +40,14 @@ export default function FaceConfiguratorTabs({ config, onChange }: FaceConfigura
   }, [])  
 
   return (
-    <div
-      style={{
-        display: "flex",
-        padding: 24,
-        gap: 32,
-        minHeight: "100vh",
-        backgroundImage: "url('/balatro_theme.crt.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div style={{ flex: 1 }}>
-        <div style={{ display: "flex", gap: 12, marginBottom: 24 }}>
+    <div className="face-config-layout">
+      <div className="tabs-wrapper">
+        <div style={{ display: "flex", gap: 12 }}>
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              style={{
-                padding: "8px 12px",
-                border: "1px solid lightgray",
-                background: tab.key === activeTab ? "transparent" : "transparent",
-                cursor: "pointer",
-                borderRadius: 6,
-                fontWeight: tab.key === activeTab ? "bold" : "normal",
-              }}
+              className={`balatro-tab ${tab.key === activeTab ? 'active' : ''}`}
             >
               {tab.label}
             </button>
@@ -71,35 +56,18 @@ export default function FaceConfiguratorTabs({ config, onChange }: FaceConfigura
 
         {active && (
           <AssetSelector
-          label={active.label}
-          folder={active.folder}
-          selected={config[active.key] || ""}
-          onSelect={handleSelect(active.key)}
-          columns={active.columns}
-          rows={active.rows}
-        />        
+            label={active.label}
+            folder={active.folder}
+            selected={config[active.key] || ""}
+            onSelect={handleSelect(active.key)}
+            columns={active.columns}
+            rows={active.rows}
+          />
         )}
       </div>
-      <div
-        style={{
-          width: 207,
-          height: 285,
-          border: "2px solid #ccc",
-          borderRadius: 8,
-          backgroundColor: "white",
-          overflow: "hidden",
-          position: "relative"
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            transform: "scale(3)",
-            transformOrigin: "top left"
-          }}
-        >
+
+      <div className="preview-container">
+        <div className="card-preview">
           <CardBuilder config={config} width={69} height={95} />
         </div>
       </div>
