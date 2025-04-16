@@ -9,7 +9,8 @@ html, body {
 #root {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -51,6 +52,8 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  overflow: visible;
+  padding-bottom: 48px;
 }
 
 .card-preview {
@@ -84,14 +87,15 @@ html, body {
 }
 
 .balatro-tab {
-  width: 45px;
+  min-width: 45px;
   height: 38px;
+  padding: 0 8px;
   background-image: url('/background.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-color: transparent;
   font-family: 'm6x11', monospace;
-  font-size: 7px;
+  font-size: 10px;
   line-height: 1;
   color: white;
   border: none;
@@ -101,12 +105,13 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .balatro-asset-wrapper {
   width: 72px;
   height: 72px;
-  padding: 2px; /* Réduit le vide autour */
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,6 +143,30 @@ html, body {
   height: 100%;
   min-height: 0;
   -webkit-overflow-scrolling: touch;
+}
+
+.custom-download-button {
+  width: 132px;
+  height: 36px;
+  background-image: url('/assets/ui/download-button.png');
+  background-size: cover;
+  image-rendering: pixelated;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 24px;
+  z-index: 1;
+  background-size: contain;
+  background-position: center;
+}
+
+.download-label {
+  font-family: 'm6x11', monospace;
+  font-size: 18px;
+  color: white;
+  line-height: 1;
+  margin-top: 1px;
 }
 
 /*

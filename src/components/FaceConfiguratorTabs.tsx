@@ -16,15 +16,25 @@ const tabs: {
   columns?: number
   rows?: number
 }[] = [
-  { key: "background", label: "Recto", folder: "rectos", columns: 8 },
-  { key: "collar", label: "Collet", folder: "collars", columns: 8 },
-  { key: "eyes", label: "Yeux", folder: "eyes", columns: 8 },
-  { key: "nose", label: "Nez", folder: "noses", columns: 8 },
-  { key: "mouth", label: "Sourire", folder: "smiles", columns: 8 },
-  { key: "hat", label: "Chapeau", folder: "hats", columns: 8 },
-  { key: "textDecoration", label: "Décoration", folder: "decorations", columns: 8 },
-  { key: "overlay", label: "Overlay", folder: "layers", columns: 8 }
+  { key: "background", label: "Background", folder: "rectos", columns: 8 },
+  { key: "collar", label: "Collars", folder: "collars", columns: 8 },
+  { key: "eyes", label: "Eyes", folder: "eyes", columns: 8 },
+  { key: "nose", label: "Noses", folder: "noses", columns: 8 },
+  { key: "mouth", label: "Smiles", folder: "smiles", columns: 8 },
+  { key: "hat", label: "Hats", folder: "hats", columns: 8 },
+  { key: "textDecoration", label: "Text Decorations", folder: "decorations", columns: 8 },
+  { key: "overlay", label: "Editions", folder: "editions", columns: 8 }
 ]
+
+const handleDownload = () => {
+  const canvas = document.querySelector("canvas")
+  if (!canvas) return
+
+  const link = document.createElement("a")
+  link.download = "joker-card.png"
+  link.href = canvas.toDataURL("image/png")
+  link.click()
+}
 
 export default function FaceConfiguratorTabs({ config, onChange }: FaceConfiguratorTabsProps) {
   const [activeTab, setActiveTab] = useState<keyof JokerFaceConfig>("collar")
@@ -69,6 +79,12 @@ export default function FaceConfiguratorTabs({ config, onChange }: FaceConfigura
       <div className="preview-container">
         <div className="card-preview">
           <CardBuilder config={config} width={69} height={95} />
+        </div>
+        <div
+          onClick={handleDownload}
+          className="custom-download-button"
+        >
+          <span className="download-label">Download</span>
         </div>
       </div>
     </div>
