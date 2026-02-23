@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+
+    { "src": "^/balatro/assets/(.*)$", "dest": "/assets/$1" },
+    { "src": "^/balatro/(.*)$", "dest": "/index.html" },
+
+    { "src": "^/(.*)$", "dest": "/index.html" }
+  ]
+}
