@@ -16,7 +16,7 @@ export default function AssetSelector({ label, folder, selected, onSelect, colum
 
   useEffect(() => {
     const folderIndex = index[folder as keyof typeof index] || []
-    setPaths(folderIndex.map((filename: string) => `/assets/${folder}/${filename}`))
+    setPaths(folderIndex.map((filename: string) => `${import.meta.env.BASE_URL}assets/${folder}/${filename}`))
   }, [folder])
 
   return (
