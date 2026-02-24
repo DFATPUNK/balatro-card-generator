@@ -19,7 +19,7 @@ export default function App() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: "url(`${import.meta.env.BASE_URL}balatro_theme.crt.png`)",
+        backgroundImage: `url(${import.meta.env.BASE_URL}balatro_theme.crt.png)`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
